@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Project</title>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+            box-sizing: border-box;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 450px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 1rem;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 12px; /* Taller input boxes for easier tapping */
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem; /* Larger text inside the boxes */
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        /* Make checkboxes bigger on mobile */
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Styles for the hidden prank section */
+        #prank-section {
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        #prank-section h1 {
+            font-size: 3rem;
+            color: #ff3333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        video {
+            border: 5px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 90%; 
+            width: 600px;
+            box-sizing: border-box;
+        }
+
+        /* --- MOBILE RESPONSIVENESS (The fix for your screenshot) --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .form-container {
+                padding: 25px 20px;
+                max-width: 100%; /* Stretches form to edge of screen */
+            }
+            h2 {
+                font-size: 1.8rem; /* Bigger title */
+            }
+            label, .checkbox-group label {
+                font-size: 1.1rem; /* Bigger label text */
+            }
+            input[type="text"], input[type="number"], select {
+                padding: 14px; /* Even taller inputs for mobile */
+                font-size: 1.1rem; /* Bigger typing text */
+            }
+            .submit-btn {
+                padding: 16px; /* Massive, easy-to-hit submit button */
+                font-size: 1.2rem;
+            }
+            #prank-section h1 {
+                font-size: 2rem; 
+                margin-bottom: 20px;
+            }
+            video {
+                max-width: 100%;
+                border-width: 3px; 
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="form-section" class="form-container">
+        <h2>Information Project</h2>
+        <form id="surveyForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Screen Time:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="screentime" value="1_hour"> 1 hour</label>
+                    <label><input type="checkbox" name="screentime" value="more_than_1_hour"> More than 1 hour</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies:</label>
+                <input type="text" id="hobbies" name="hobbies" placeholder="e.g., Reading, Gaming, Hiking">
+            </div>
+            <div class="form-group">
+                <label for="movie">Favorite Movie:</label>
+                <input type="text" id="movie" name="movie">
+            </div>
+            <div class="form-group">
+                <label for="song">Favorite Song:</label>
+                <input type="text" id="song" name="song">
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="prank-section">
+        <h1>april fools sucker</h1>
+        <video id="prank-video" controls>
+            </video>
+    </div>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            // Stop page refresh
+            event.preventDefault(); 
+            
+            // Hide form, make background black, show prank section
+            document.getElementById('form-section').style.display = 'none';
+            document.body.style.backgroundColor = '#111';
+            document.getElementById('prank-section').style.display = 'flex';
+            
+            // Link to your local video file (must be in the same folder)
+            const myVideo = document.getElementById('prank-video');
+            myVideo.src = "video.mp4"; 
+            
+            // Forces the video to play automatically!
+            myVideo.play();
+        });
+    </script>
+
+</body>
+</html>
